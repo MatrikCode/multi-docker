@@ -10,15 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} --password-stdin
-      - run: docker build -t matrik/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true matrik/react-test npm test
+      - run: docker build -t matrenaud/react-test -f ./client/Dockerfile.dev ./client
+      - run: docker run -e CI=true matrenaud/react-test npm test
 
-      - run: docker build -t matrik/multi-client ./client
-      - run: docker build -t matrik/multi-nginx ./nginx
-      - run: docker build -t matrik/multi-server ./server
-      - run: docker build -t matrik/multi-worker ./worker
+      - run: docker build -t matrenaud/multi-client ./client
+      - run: docker build -t matrenaud/multi-nginx ./nginx
+      - run: docker build -t matrenaud/multi-server ./server
+      - run: docker build -t matrenaud/multi-worker ./worker
 
-      - run: docker push matrik/multi-client
-      - run: docker push matrik/multi-nginx
-      - run: docker push matrik/multi-server
-      - run: docker push matrik/multi-worker
+      - run: docker push matrenaud/multi-client
+      - run: docker push matrenaud/multi-nginx
+      - run: docker push matrenaud/multi-server
+      - run: docker push matrenaud/multi-worker
